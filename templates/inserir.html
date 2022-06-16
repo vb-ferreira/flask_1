@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<br>
+<h2 style="text-align: center;">Inserir Usuários</h2>
+<hr>
+
+{%- for mensagem in get_flashed_messages() %}
+	<div class="alert alert-danger">
+		{{mensagem}}
+	</div>
+{%- endfor %}
+
+<form action="{{url_for('inserir')}}" method="POST" class="form-control">
+	<label>Nome</label>
+	<input class="form-control" type="text" name="nome" placeholder="Nome do usuário" required>
+	<label>Email</label>
+	<input class="form-control" type="Email" name="email" placeholder="Email do usuário" required>
+	<br>
+	<button class="btn btn-success">Adicionar</button>
+</form>
+
+{% endblock conteudo %}

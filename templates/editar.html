@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<br>
+<h2 style="text-align: center;">Editar Usuários</h2>
+<hr>
+
+{%- for mensagem in get_flashed_messages() %}
+	<div class="alert alert-danger">
+		{{mensagem}}
+	</div>
+{%- endfor %}
+
+<form action="{{url_for('editar', id=usuario.id)}}" method="POST" class="form-control">
+	<label>Nome</label>
+	<input class="form-control" type="text" name="nome" value="{{usuario.nome}}">
+	<label>Email</label>
+	<input class="form-control" type="Email" name="email" value="{{usuario.email}}">
+	<br>
+	<button class="btn btn-success">Salvar</button>
+</form>
+
+{% endblock conteudo %}
